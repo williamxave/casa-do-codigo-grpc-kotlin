@@ -3,13 +3,14 @@ package br.com.casa.william.author
 import br.com.casa.william.AuthorRecordGrpc
 import br.com.casa.william.AuthorRequest
 import br.com.casa.william.AuthorResponse
+import br.com.casa.william.validator.ErrorHandler
 import io.grpc.stub.StreamObserver
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.time.LocalDateTime
 import javax.inject.Singleton
 
 @Singleton
+@ErrorHandler
 class RegisterAuthorEndPoint(
     val authorValidate: AuthorValidate
 ) : AuthorRecordGrpc.AuthorRecordImplBase() {
