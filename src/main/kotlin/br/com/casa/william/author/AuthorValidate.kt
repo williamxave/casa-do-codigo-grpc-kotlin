@@ -9,7 +9,7 @@ import javax.validation.Valid
 class AuthorValidate(
     val authorRepository: AuthorRepository
 ) {
-    fun validate(@Valid authorDto: AthorDto): Author {
+    fun validate(@Valid authorDto: AuthorDto): Author {
         authorDto.run {
             Author(
                 email = authorDto.email,

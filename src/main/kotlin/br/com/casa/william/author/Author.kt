@@ -10,7 +10,7 @@ import javax.validation.constraints.Size
 
 @Entity
 class Author(
-    @field:NotBlank @field:Email val email: String,
+    @field:NotBlank @field:Email @field:Column(unique = true) val email: String,
     @field:NotBlank val name: String,
     @field:NotBlank @field:Size(max = 400) val description: String,
     @field:NotNull val createdAt: LocalDateTime
