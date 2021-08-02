@@ -1,4 +1,4 @@
-package br.com.casa.do.cogido.william
+package br.com.casa.william
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Assertions

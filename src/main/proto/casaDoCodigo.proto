@@ -1,14 +1,27 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "br.com.casa.do.cogido.william";
+option java_package = "br.com.casa.william";
 option java_outer_classname = "CasaDoCodigo";
 option objc_class_prefix = "HLW";
-
-package br.com.casa.do.cogido.william;
+import "google/protobuf/timestamp.proto";
+package br.com.casa.william;
 
 service CasaDoCodigoService {
   rpc send (CasaDoCodigoRequest) returns (CasaDoCodigoReply) {}
+}
+
+service AuthorRecord{
+  rpc registry (AuthorRequest) returns (AuthorResponse){}
+}
+
+message AuthorRequest{
+  string email = 1;
+  string name = 2;
+  string description = 3;
+}
+message AuthorResponse{
+  string name = 1;
 }
 
 message CasaDoCodigoRequest {

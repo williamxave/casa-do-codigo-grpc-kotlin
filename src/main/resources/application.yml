@@ -3,10 +3,16 @@ micronaut:
     name: casaDoCodigo
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/casa-codigo
     driverClassName: org.postgresql.Driver
-    username: postgres
-    password: ''
+    username: ${POSTGRES_USER:`postgres`}
+    password: ${POSTGRES_PASSWORD:`postgres`}
     schema-generate: CREATE_DROP
     dialect: POSTGRES
 jpa.default.properties.hibernate.hbm2ddl.auto: update
+
+jpa:
+  default:
+    properties:
+      hibernate.hbm2ddl.auto: 'create-drop'
+      hibernate.show_sql: true
