@@ -2,6 +2,7 @@ package br.com.casa.william.validator
 
 import br.com.casa.william.author.AuthorDto
 import br.com.casa.william.author.AuthorRepository
+import br.com.casa.william.customexceptions.EmailValidatorException
 import io.micronaut.core.annotation.AnnotationValue
 import io.micronaut.validation.validator.constraints.ConstraintValidator
 import io.micronaut.validation.validator.constraints.ConstraintValidatorContext
@@ -32,7 +33,7 @@ class ExistEmailValidator(
     ): Boolean {
         val possibleEmail = authorRepository.existsByEmail(value.email)
         if (possibleEmail) {
-            return false
+            throw EmailValidatorException("Email already registered")
         }
         return true
     }
