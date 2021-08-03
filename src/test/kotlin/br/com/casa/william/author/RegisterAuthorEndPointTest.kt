@@ -89,7 +89,7 @@ internal class RegisterAuthorEndPointTest(
             grpcClient.registry(request)
         }
         with(response) {
-            assertEquals(Status.INVALID_ARGUMENT.code, response.status.code)
+            assertEquals(Status.ALREADY_EXISTS.code, response.status.code)
             assertEquals("Email already registered", response.status.description)
         }
     }

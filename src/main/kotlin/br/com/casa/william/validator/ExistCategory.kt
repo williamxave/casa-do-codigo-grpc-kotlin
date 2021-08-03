@@ -1,8 +1,7 @@
 package br.com.casa.william.validator
 
-import br.com.casa.william.author.AuthorDto
+import br.com.casa.william.category.CategoryDto
 import br.com.casa.william.category.CategoryRepository
-import br.com.casa.william.customexceptions.EmailValidatorException
 import br.com.casa.william.customexceptions.NameValidatorException
 import io.micronaut.core.annotation.AnnotationValue
 import io.micronaut.validation.validator.constraints.ConstraintValidator
@@ -11,7 +10,6 @@ import javax.inject.Singleton
 import javax.validation.Constraint
 import javax.validation.Payload
 import kotlin.reflect.KClass
-import br.com.casa.william.category.CategoryDto
 
 @MustBeDocumented
 @Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE)
