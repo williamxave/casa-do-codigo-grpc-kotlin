@@ -1,6 +1,7 @@
 package br.com.casa.william.validator
 
 import br.com.casa.william.customexceptions.EmailValidatorException
+import br.com.casa.william.customexceptions.NameValidatorException
 import io.grpc.Status
 import io.grpc.stub.StreamObserver
 import io.micronaut.aop.InterceptorBean
@@ -23,7 +24,10 @@ class ErrorHandlerInterceptor : MethodInterceptor<Any, Any> {
                 is ConstraintViolationException -> Status.INVALID_ARGUMENT
                     .withDescription("Nenhum campo pode estar vazio ou com dados inválidos")
 
-                is EmailValidatorException -> Status.INVALID_ARGUMENT
+                is EmailValidatorException -> Status.ALREADY_EXISTS
+                    .withDescription(e.message)
+
+                is NameValidatorException -> Status.ALREADY_EXISTS
                     .withDescription(e.message)
 
                 else -> Status.INTERNAL.withDescription("Aconteceu algo insesperado! Tente novamente!")

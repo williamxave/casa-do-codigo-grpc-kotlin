@@ -15,6 +15,20 @@ service AuthorRecord{
   rpc registry (AuthorRequest) returns (AuthorResponse){}
 }
 
+service CategoryRecord{
+  rpc categoryRegistry (CategoryRequest) returns (CategoryResponse) {}
+}
+
+message CategoryRequest{
+  string name = 1;
+}
+
+message CategoryResponse{
+  string name = 1;
+  string externalId = 2;
+}
+
+
 message AuthorRequest{
   string email = 1;
   string name = 2;

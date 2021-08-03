@@ -3,7 +3,7 @@ micronaut:
     name: casaDoCodigo
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/casa-codigo
+    url: jdbc:postgresql://localhost:5432/casa_codigo
     driverClassName: org.postgresql.Driver
     username: ${POSTGRES_USER:`postgres`}
     password: ${POSTGRES_PASSWORD:`postgres`}
